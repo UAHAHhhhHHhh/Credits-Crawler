@@ -10,6 +10,8 @@ var velocity: Vector2 = Vector2()
 
 const FLOOR_NORMAL: Vector2 = Vector2(0, -1) # Direction of a floor
 
+onready var SCREEN_WIDTH: float = get_viewport_rect().size.x
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -18,7 +20,8 @@ func _ready():
 func _physics_process(delta):
 	get_input()
 	velocity.y += GRAVITY * delta
-	velocity = move_and_slide(velocity, Vector2(0, -1))
+	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+	get_wrap()
 	if jumping and is_on_floor():
 		jumping = false
 
@@ -37,3 +40,12 @@ func get_input():
 	if jump and is_on_floor():
 		jumping = true
 		velocity.y -= JUMP_VELOCITY
+
+# Called when checking if we need to wrap
+func get_wrap():
+	# Check if we are off right side of screen
+	if position.x > SCREEN_WIDTH:
+		position.x = 1
+	# Check if we are off left side of screen
+	if position.x < 0:
+		position.x = SCREEN_WIDTH-1
