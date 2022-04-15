@@ -114,4 +114,4 @@ tile_data = PoolIntArray( 458753, 1, 0, 458754, 0, 0, 458755, 1, 0, 524295, 2, 0
 [node name="ScrollingCamera" type="Camera2D" parent="."]
 position = Vector2( 511, 294 )
 script = ExtResource( 2 )
-MAX_SCROLL = 1650.0
+MAX_SCROLL = 50.0
