@@ -14,6 +14,15 @@ config/name="Credits-Crawler"
 run/main_scene="res://src/main/Game.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_render/layer_1="characters"
+2d_render/layer_5="ground"
+2d_physics/layer_1="player"
+2d_physics/layer_2="walkers"
+2d_physics/layer_3="flyers"
+2d_physics/layer_5="ground"
+
 [physics]
 
 common/enable_pause_aware_picking=true

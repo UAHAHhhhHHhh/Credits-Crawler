@@ -13,6 +13,8 @@ const FLOOR_NORMAL: Vector2 = Vector2(0, -1) # Direction of a floor
 onready var SCREEN_WIDTH: float = get_viewport_rect().size.x	# Viewport width
 onready var SCREEN_HEIGHT: float = get_viewport_rect().size.y	# Viewport height
 
+onready var global = get_node("/root/Game")
+
 var scrolling: bool
 var credits
 var camera
@@ -83,10 +85,11 @@ func chk_outside_scroll():
 		# Check if we are outside the camera
 		if (position.y < upper) or (position.y > lower):
 			print("dead")
-			get_tree().reload_current_scene()
+			global.end()
 
 # Called when scrolling signal emitted from ScrollCamera
 func _scrolling():
 	print("scrolling")
 	scrolling = true
+	
 	
