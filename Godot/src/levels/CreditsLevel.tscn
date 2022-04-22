@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/art/prototype/proto-tileset.png" type="Texture" id=1]
 [ext_resource path="res://scripts/scroll.gd" type="Script" id=2]
 [ext_resource path="res://src/enemies/WalkingEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/music/CreditsTheme.wav" type="AudioStream" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -134,3 +135,8 @@ AMPLITUDE = 500.0
 [node name="Enemy3" parent="WalkingEnemies" groups=["walkers"] instance=ExtResource( 3 )]
 position = Vector2( 902, 992 )
 AMPLITUDE = 500.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -15.731
+autoplay = true

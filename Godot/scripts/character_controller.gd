@@ -91,5 +91,9 @@ func chk_outside_scroll():
 func _scrolling():
 	print("scrolling")
 	scrolling = true
-	
+
+# Called when colliding with a body
+func _on_body_entered(body):
+	if body.is_in_group("walkers"):
+		global.end()
 	

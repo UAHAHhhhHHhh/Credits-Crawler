@@ -33,7 +33,7 @@ func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	velocity.y = move_and_slide(velocity, FLOOR_NORMAL).y
 	check_off_screen()
-	check_collision()
+	# check_collision()
 	
 # Called when processing sinusoidal movement
 func walk():
@@ -43,10 +43,10 @@ func walk():
 
 	# Only do this while we're on the floor or 
 	if (not left_platform.is_colliding()) or (pos <= left):
-		print("right")
+		# print("right")
 		velocity.x = SPEED
 	elif (not right_platform.is_colliding()) or (pos >= right):
-		print("left")
+		# print("left")
 		velocity.x = -SPEED
 
 # Called when checking if the character is off the screen
@@ -58,8 +58,8 @@ func check_off_screen():
 		queue_free()
 
 # Called to check collisions
-func check_collision():
-	for idx in get_slide_count():
-		var body = get_slide_collision(idx).collider
-		if body.get_collision_layer() == 1:
-			global.end()
+# func check_collision():
+# 	for idx in get_slide_count():
+# 		var body = get_slide_collision(idx).collider
+# 		if body.get_collision_layer() == 1:
+# 			global.end()
